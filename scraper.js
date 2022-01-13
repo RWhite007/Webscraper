@@ -19,7 +19,7 @@ async function webScraper(url) {
     const rawTxt = await txt.jsonValue();
     
 
-    if (rawTxt === ' OUT OF STOCK.') { //When still sold out, waits 20-50 seconds before looping again
+    if (rawTxt === ' OUT OF STOCK.') { 
         console.log('Not in stock, checking again soon');
         await sleep ((Math.random() * 1000));  //pauses before closing browser
         browser.close();
@@ -28,9 +28,9 @@ async function webScraper(url) {
             const channel = client.channels.cache.get('929197937924407309').send(`3080 in stock!  Here's the link ${myUrl}`);
         });
         client.login(config.BOT_TOKEN);
-        await sleep((Math.random() * 3000) + 4000);
+        await sleep((Math.random() * 3000) + 4000); 
 
-    } else {  //else sleep for 1 hour before looping again
+    } else {  
         console.log('GPU in stock!?');
         await sleep(3600000);
         
